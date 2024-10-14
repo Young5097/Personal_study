@@ -21,3 +21,4 @@ public class JpaStudyApplication implements CommandLineRunner {
         memberService.insertMember();
     }
 }
+

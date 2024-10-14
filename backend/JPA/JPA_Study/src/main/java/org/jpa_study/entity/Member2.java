@@ -1,7 +1,10 @@
 package org.jpa_study.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -11,17 +14,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-//@Table(name="MEMBER")
-@Table(name="MEMBER", uniqueConstraints = {@UniqueConstraint(
-        name="NAME_AGE_UNIQUE",
-        columnNames = {"NAME", "AGE"}
-)})
-public class Member {
+@Table(name="MEMBER2")
+public class Member2 {
     @Id
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "NAME", nullable = false, length = 10)
+    @Column(name = "NAME")
     private String username;
 
     private Integer age;
