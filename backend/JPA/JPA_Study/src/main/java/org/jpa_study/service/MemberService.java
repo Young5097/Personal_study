@@ -50,7 +50,7 @@ public class MemberService {
         System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
 
         //목록 조회
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        List<Member> members = em.createQuery("select m from Member_TEST m", Member.class).getResultList();
         System.out.println("members.size=" + members.size());
 
         //삭제

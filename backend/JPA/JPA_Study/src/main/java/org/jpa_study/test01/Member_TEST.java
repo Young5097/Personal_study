@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Member {
+public class Member_TEST {
 
     @Id
     @GeneratedValue
