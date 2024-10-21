@@ -6,3 +6,4 @@
 3. [영속성 관리](https://ysstudy.notion.site/3-10c02f7b137180498d8afc8f104e0bf7?pvs=4) (2024.09.25)
 4. [엔티티 매핑](https://www.notion.so/ysstudy/4-11f02f7b137180c29ecfcc6853a4ac0b) (2024.10.14~15)
 5. [연관관계 매핑 기초](https://ysstudy.notion.site/5-12402f7b137180368f7cf6634f519567?pvs=4) (2024.10.19)
+6. [다양한 연관관계 매핑](https://ysstudy.notion.site/6-12602f7b13718019a2acf00dcdac4a5a?pvs=4) (2024.10.21)
