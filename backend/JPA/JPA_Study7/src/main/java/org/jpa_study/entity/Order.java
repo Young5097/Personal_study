@@ -1,8 +1,10 @@
-package org.jpa_study;
+package org.jpa_study.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.jpa_study.entity.global.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,7 +30,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;

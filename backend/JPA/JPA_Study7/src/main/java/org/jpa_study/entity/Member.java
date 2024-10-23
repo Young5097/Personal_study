@@ -1,14 +1,15 @@
-package org.jpa_study;
+package org.jpa_study.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.jpa_study.entity.global.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,19 +22,18 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Delivery {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
-    @Column(name = "DELIVERY_ID")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
-    private Order order;
+    private String name;
 
     private String city;
     private String street;
     private String zipcode;
 
-    @Enumerated(EnumType.STRING)
-    private DeliveryStatus status; 
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<Order>();
 }

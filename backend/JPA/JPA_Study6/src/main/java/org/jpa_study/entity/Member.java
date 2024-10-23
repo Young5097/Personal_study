@@ -1,4 +1,4 @@
-package org.jpa_study;
+package org.jpa_study.entity;
 
 import java.util.ArrayList;
 import java.util.List;

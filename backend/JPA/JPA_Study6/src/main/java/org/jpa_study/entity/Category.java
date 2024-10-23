@@ -1,7 +1,9 @@
-package org.jpa_study;
+package org.jpa_study.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jpa_study.entity.item.Item;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

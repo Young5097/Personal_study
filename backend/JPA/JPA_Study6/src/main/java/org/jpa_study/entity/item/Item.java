@@ -1,7 +1,9 @@
-package org.jpa_study;
+package org.jpa_study.entity.item;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jpa_study.entity.Category;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,6 +33,6 @@ public class Item {
     private int price;          //가격
     private int stockQuantity;  //재고수량
 
-    @ManyToMany(mappedBy = "items")                         //**
-    private List<Category> categories = new ArrayList<Category>(); //**
+    @ManyToMany(mappedBy = "items")                         
+    private List<Category> categories = new ArrayList<Category>(); 
 }

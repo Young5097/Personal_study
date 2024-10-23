@@ -1,4 +1,6 @@
-package org.jpa_study;
+package org.jpa_study.entity;
+
+import org.jpa_study.entity.item.Item;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,12 +30,12 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "ITEM_ID")
-    private Item item;      //주문 상품
+    private Item item;     
 
     @ManyToOne
     @JoinColumn(name = "ORDER_ID")
-    private Order order;    //주문
+    private Order order;  
 
-    private int orderPrice; //주문 가격
-    private int count;      //주문 수량
+    private int orderPrice; 
+    private int count;      
 }
