@@ -1,4 +1,4 @@
-package org.jpa_study.entity;
+package org.jpa_study.entity.delivery;
 
 public enum DeliveryStatus {
     READY, //준비

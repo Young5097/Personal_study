@@ -6,6 +6,7 @@ import java.util.List;
 import org.jpa_study.entity.global.BaseEntity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -29,10 +30,9 @@ public class Member extends BaseEntity {
     private Long id;
 
     private String name;
-
-    private String city;
-    private String street;
-    private String zipcode;
+    
+    @Embedded // 엔티티는 별개로 생성되지만, DB에선 통합된 형태
+    private Address address;
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<Order>();

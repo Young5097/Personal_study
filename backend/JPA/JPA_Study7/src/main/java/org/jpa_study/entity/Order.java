@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.jpa_study.entity.delivery.Delivery;
 import org.jpa_study.entity.global.BaseEntity;
 
 import jakarta.persistence.CascadeType;

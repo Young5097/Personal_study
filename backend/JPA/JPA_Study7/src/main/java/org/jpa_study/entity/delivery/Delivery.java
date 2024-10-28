@@ -1,8 +1,12 @@
-package org.jpa_study.entity;
+package org.jpa_study.entity.delivery;
 
 import java.util.List;
 
+import org.jpa_study.entity.Address;
+import org.jpa_study.entity.Order;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,10 +33,9 @@ public class Delivery {
 
     @OneToOne(mappedBy = "delivery")
     private Order order;
-
-    private String city;
-    private String street;
-    private String zipcode;
+    
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status; 
