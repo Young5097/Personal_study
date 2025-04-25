@@ -33,9 +33,9 @@ public class OrderServiceTest {
     public void productOrder() throws Exception {
 
         // Given
-        Member member = createMember();
-        Item item = createBook("시골 JPA", 10000, 10);
-        int orderCount = 2;
+        Member member = createMember("회원1", "서울", "을지로", "121-44");
+        Item item = createBook("ORM Standard JPA", 29800, 5);
+        int orderCount = 11;
 
         Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
 
