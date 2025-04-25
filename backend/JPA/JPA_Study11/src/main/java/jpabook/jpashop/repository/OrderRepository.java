@@ -29,29 +29,32 @@ public class OrderRepository {
     }
 
     public List<Order> findAll(OrderSearch orderSearch) {
-
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Order> cq = cb.createQuery(Order.class);
-        Root<Order> root = cq.from(Order.class);
-
-        List<Predicate> criteria = new ArrayList<Predicate>();
+        String jpql = "select o from Order o join o.member m where 1=1";
 
         // 주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
-            Predicate status = cb.equal(root.get("orderStatus"), orderSearch.getOrderStatus());
-            criteria.add(status);
+            jpql += " and o.orderStatus = :orderStatus";
         }
 
         // 회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
-            // Order-Member 조인
-            Join<Order, Member> join = root.join("member", JoinType.INNER);
-            Predicate name = cb.like(join.<String>get("name"), "%" + orderSearch.getMemberName() + "%");
-            criteria.add(name);
-
+            jpql += " and m.name like :memberName";
         }
-        cq.where(cb.and(criteria.toArray(new Predicate[criteria.size()])));
-        TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000);
-        return query.getResultList();
+
+        TypedQuery<Order> query = em.createQuery(jpql, Order.class);
+
+        // 주문 상태 파라미터 설정
+        if (orderSearch.getOrderStatus() != null) {
+            query.setParameter("orderStatus", orderSearch.getOrderStatus());
+        }
+
+        // 회원 이름 파라미터 설정
+        if (StringUtils.hasText(orderSearch.getMemberName())) {
+            query.setParameter("memberName", "%" + orderSearch.getMemberName() + "%");
+        }
+
+        // 결과 반환
+        return query.setMaxResults(1000).getResultList();
     }
+
 }

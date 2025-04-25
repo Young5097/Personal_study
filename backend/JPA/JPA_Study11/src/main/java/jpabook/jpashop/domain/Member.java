@@ -1,7 +1,6 @@
 package jpabook.jpashop.domain;
 
 import lombok.Data;
-import sun.jvm.hotspot.debugger.Address;
 
 import javax.persistence.*;
 import java.util.ArrayList;

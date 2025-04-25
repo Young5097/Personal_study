@@ -2,7 +2,6 @@ package jpabook.jpashop.domain;
 
 import jpabook.jpashop.dto.DeliveryStatus;
 import lombok.Data;
-import sun.jvm.hotspot.debugger.Address;
 
 import javax.persistence.*;
 
