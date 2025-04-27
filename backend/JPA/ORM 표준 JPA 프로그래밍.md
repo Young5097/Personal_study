@@ -15,3 +15,5 @@
       2. [QueryDSL](https://ysstudy.notion.site/10-2-QueryDSL-13702f7b137180569b31d1512b944f6e?pvs=4) (2024.11.07)
       3. [Native SQL](https://www.notion.so/ysstudy/10-3-SQL-1d502f7b1371800bb58fd558131ba5b4) (2025.04.14)
       4. [객제지향 심화쿼리](https://www.notion.so/ysstudy/10-4-1d502f7b137180efa41fc740667d0d35) (2025.04.14)
+11. 웹 어플리케이션 제작 (2025.04.15~25)
+12. [스프링 데이터 JPA](https://www.notion.so/ysstudy/12-JPA-1e202f7b137180788441e568f4c644d5) (2025.04.27)
