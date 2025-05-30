@@ -17,3 +17,4 @@
       4. [객제지향 심화쿼리](https://www.notion.so/ysstudy/10-4-1d502f7b137180efa41fc740667d0d35) (2025.04.14)
 11. 웹 어플리케이션 제작 (2025.04.15~25)
 12. [스프링 데이터 JPA](https://www.notion.so/ysstudy/12-JPA-1e202f7b137180788441e568f4c644d5) (2025.04.27)
+13. [웹 어플리케이션과 영속성 관리](https://www.notion.so/ysstudy/13-20102f7b137180ae814cd34a8ba53681) (2025.05.28)
