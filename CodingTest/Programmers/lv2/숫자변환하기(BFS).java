@@ -6,7 +6,7 @@ public class 숫자변환하기 {
     public int solution(int x, int y, int n) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] { x, 0 });
-        boolean[] visited = new boolean[1000000];
+        boolean[] visited = new boolean[y + 1];
 
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
