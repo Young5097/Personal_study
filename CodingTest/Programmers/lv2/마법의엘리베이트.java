@@ -1,4 +1,6 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/148653?language=java
+
+// 첫번째자리부터 내려가는게 아닌, 1의자리부터 내려간다 생각하는게 핵심임!
 class 마법의엘리베이트 {
     public int solution(int storey) {
         int answer = 0;
