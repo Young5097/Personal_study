@@ -18,3 +18,6 @@
 11. 웹 어플리케이션 제작 (2025.04.15~25)
 12. [스프링 데이터 JPA](https://www.notion.so/ysstudy/12-JPA-1e202f7b137180788441e568f4c644d5) (2025.04.27)
 13. [웹 어플리케이션과 영속성 관리](https://www.notion.so/ysstudy/13-20102f7b137180ae814cd34a8ba53681) (2025.05.28)
+14. [컬렉션과 부과 기능](https://www.notion.so/ysstudy/14-21702f7b137180bfbab7f39dd044a677) (2025.06.22)
+15. [예외처리](https://www.notion.so/ysstudy/15-21702f7b137180e291bbed6512563187) (2025.06.22)
+16. [트랜잭션과 락](https://www.notion.so/ysstudy/16-21a02f7b1371802382b7f8f19dd2a78a) (2025.06.22)
