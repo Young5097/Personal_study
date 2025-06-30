@@ -2,7 +2,7 @@ import java.util.*;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/132265
 
-class Solution {
+public class 케이크자르기 {
     public int solution(int[] topping) {
         int answer = 0;
 

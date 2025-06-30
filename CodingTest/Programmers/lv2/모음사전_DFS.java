@@ -2,7 +2,7 @@ import java.util.*;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/84512
 
-public class 모음사전 {
+public class 모음사전_DFS {
     class Solution {
         ArrayList<String> dict = new ArrayList<>();
         String std = "AEIOU";

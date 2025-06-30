@@ -13,7 +13,7 @@
     4. 넓이가 같으면 반환
 */
 
-class Solution {
+public class 카펫_완전탐색 {
     public int[] solution(int brown, int yellow) {
         int[] answer = {};
 

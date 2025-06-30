@@ -1,7 +1,7 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/68936
 // 완전탐색 + 분할정복
 
-class Solution {
+public class 쿼드트리압축후개수세기 {
     public int[] solution(int[][] arr) { // arr은 가로, 세로가 길이가 같음
         int[] answer = new int[2];
         zipArr(arr, 0, 0, arr.length, answer);
