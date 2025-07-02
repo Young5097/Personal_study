@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class 숫자변환하기 {
+public class 숫자변환하기_BFS {
 
     public int solution(int x, int y, int n) {
         Queue<int[]> queue = new LinkedList<>();
