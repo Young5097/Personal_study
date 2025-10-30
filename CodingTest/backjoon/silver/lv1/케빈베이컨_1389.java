@@ -21,7 +21,7 @@ public class 케빈베이컨_1389 {
                 if (i == j) {
                     dist[i][j] = 0;
                 } else {
-                    dist[i][j] = 10000000;  // 큰 값
+                    dist[i][j] = Integer.MAX_VALUE;  // 큰 값
                 }
             }
         }
