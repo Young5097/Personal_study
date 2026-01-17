@@ -21,45 +21,45 @@ public class 단지번호붙이기_2667 {
             }
         }
 
+        List<Integer> houseGroupCount = new ArrayList<>();
         boolean[][] visited = new boolean[N][N];
-        List<Integer> aptCount = new ArrayList<>();
 
         for (int i=0; i<N; i++) {
             for (int j=0; j<N; j++) {
-                if (visited[i][j] || map[i][j] == 0) continue;
+                if (!visited[i][j] && map[i][j] == 1) {
+                    int count = 1;
+                    visited[i][j] = true;
+                    
+                    Stack<int[]> stack = new Stack<>();
+                    stack.add(new int[] {i, j});
+                    
+                    while (!stack.isEmpty()) {
+                        int[] cur = stack.pop();
+                        int x = cur[0];
+                        int y = cur[1];
+                        
+                        for (int k=0; k<4; k++) {
+                            int nx = x + dx[k];
+                            int ny = y + dy[k];
 
-                Queue<int[]> q = new LinkedList<>();
-                int count = 0;
-
-                q.offer(new int[] {i, j});
-                count++;
-                visited[i][j] = true;
-
-                while (!q.isEmpty()) {
-                    int[] cur = q.poll();
-
-                    for (int k=0; k<4; k++) {
-                        int nx  = cur[0] + dx[k];
-                        int ny  = cur[1] + dy[k];
-
-                        if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
-                        if (visited[nx][ny] || map[nx][ny] == 0) continue;
-
-                        visited[nx][ny] = true;
-                        q.offer(new int[] {nx, ny});
-                        count++;
+                            if (nx >= 0 && ny >= 0 && nx < N && ny < N
+                                && !visited[nx][ny] && map[nx][ny] == 1
+                            ) {
+                                count += 1;
+                                visited[nx][ny] = true;
+                                stack.add(new int[] {nx, ny});
+                            }
+                        }
                     }
-                }
-                aptCount.add(count);
+                    houseGroupCount.add(count);
+                }    
             }
         }
 
-        Collections.sort(aptCount);
-        StringBuilder sb = new StringBuilder();
-        sb.append(aptCount.size()).append("\n");
-        for (int count : aptCount) {
-            sb.append(count).append("\n");
+        Collections.sort(houseGroupCount);
+        System.out.println(houseGroupCount.size());
+        for (int n : houseGroupCount) {
+            System.out.println(n);
         }
-        System.out.println(sb);
     }
 }

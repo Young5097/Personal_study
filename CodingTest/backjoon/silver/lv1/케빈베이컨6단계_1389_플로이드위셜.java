@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 케빈베이컨_1389 {
-        public static void main(String[] args) throws IOException {
+public class 케빈베이컨6단계_1389_플로이드위셜 {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         
@@ -39,14 +39,13 @@ public class 케빈베이컨_1389 {
         for (int k=1; k<=N; k++) {
             for (int i=1; i<=N; i++) {
                 for (int j=1; j<=N; j++) {
-                    dist[i][j] = Math.min(dist[i][j], dist[i][k]+dist[k][j]);
+                    dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);
                 }
             }
         }
 
         int minSum = Integer.MAX_VALUE;
         int answer = 0;
-
         for (int i = 1; i <= N; i++) {
             int sum = 0;
             for (int j = 1; j <= N; j++) {

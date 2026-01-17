@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 랜선자르기_1654_parameticSearch {
+public class 랜선자르기_1654 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
@@ -21,7 +21,7 @@ public class 랜선자르기_1654_parameticSearch {
             cables[i] = Integer.parseInt(br.readLine());
             max = Math.max(max, cables[i]);
         }
-        
+
         long st = 1;
         long en = max;
         long answer = 0;
@@ -29,17 +29,17 @@ public class 랜선자르기_1654_parameticSearch {
         while (st <= en) {
             long mid = (st+en)/2;
 
-            int count = 0;
+            int count=0;
             for (int cable : cables) {
                 count += cable/mid;
             }
 
-            if (N <= count) { // 더 크게 자르거나 맞는 상황
-                answer = mid;
-                st = mid+1;
-            } else { // 부족하므로 더 작게 잘라야하는 상황
+            if (count < N) { // 자른 전선이 부족한 경우 -> 더 짧게게 짤라야함
                 en = mid-1;
-            }
+            } else if (count >= N) { // 자른 전선이 더 많은 경우 -> 더 길게 짤라야함
+                st = mid+1;
+                answer = mid; // 자른 전선이 부족하면 X. 또한 최댓값이 되어야하기 때문에 
+            } 
         }
 
         System.out.println(answer);

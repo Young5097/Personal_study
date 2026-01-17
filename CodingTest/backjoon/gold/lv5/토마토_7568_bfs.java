@@ -1,9 +1,5 @@
 package backjoon.gold.lv5;
 
-/*
- * https://www.acmicpc.net/problem/7569
- */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,57 +37,53 @@ public class 토마토_7568_bfs {
     }
 
     public static int bfs(int[][][] boxs, boolean[][][] visited, int o, int n, int m) {
-        Queue<int[]> queue = new LinkedList<>();
-        // 익은 토마토를 모두 큐에 넣기
-        for (int h = 0; h < o; h++) {
-            for (int r = 0; r < n; r++) {
-                for (int c = 0; c < m; c++) {
-                    if (boxs[h][r][c] == 1 && !visited[h][r][c]) {
-                        visited[h][r][c] = true;
-                        queue.offer(new int[] { h, r, c });
+        Queue<int[]> q = new LinkedList<>();
+        for (int i=0; i<o; i++) {
+            for (int j=0; j<n; j++) {
+                for (int k=0; k<m; k++) {
+                    if (boxs[i][j][k] == 1 && !visited[i][j][k]) {
+                        visited[i][j][k] = true;
+                        q.add(new int[] {i, j, k});
                     }
                 }
             }
         }
 
-        while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            int ch = curr[0];
-            int cr = curr[1];
-            int cc = curr[2];
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int curH = cur[0];
+            int curX = cur[1];
+            int curY = cur[2];
+        
+            for (int i=0; i<6; i++) {
+                int nxtH = curH + dx[i];
+                int nxtX = curX + dy[i];
+                int nxtY = curY + dz[i];
 
-            for (int i = 0; i < 6; i++) {
-                int nh = ch + dz[i];
-                int nr = cr + dy[i];
-                int nc = cc + dx[i];
+                if (nxtH < 0 || nxtX < 0 || nxtY < 0
+                    || nxtH >= o || nxtX >= n || nxtY >= m
+                ) continue;
 
-                if (nh >= 0 && nr >= 0 && nc >= 0 && nh < o && nr < n && nc < m) {
-                    if (!visited[nh][nr][nc] && boxs[nh][nr][nc] == 0) {
-                        boxs[nh][nr][nc] = boxs[ch][cr][cc] + 1;
-                        visited[nh][nr][nc] = true;
-                        queue.offer(new int[] { nh, nr, nc });
-                    }
+                if (!visited[nxtH][nxtX][nxtY] && boxs[nxtH][nxtX][nxtY] == 0) {
+                    visited[nxtH][nxtX][nxtY] = true;
+                    boxs[nxtH][nxtX][nxtY] = boxs[curH][curX][curY] + 1; 
+                    q.add(new int[] {nxtH, nxtX, nxtY});
                 }
             }
         }
 
-        int maxDay = 0;
-        boolean hasZero = false;
-        for (int h = 0; h < o; h++) {
-            for (int r = 0; r < n; r++) {
-                for (int c = 0; c < m; c++) {
-                    if (boxs[h][r][c] == 0) {
-                        hasZero = true;
+        int answer = 0;
+        for (int i=0; i<o; i++) {
+            for (int j=0; j<n; j++) {
+                for (int k=0; k<m; k++) {
+                    if (boxs[i][j][k] == 0) {
+                        return -1;
                     }
-                    maxDay = Math.max(maxDay, boxs[h][r][c]);
+                    answer = Math.max(answer, boxs[i][j][k]);
                 }
             }
         }
 
-        if (hasZero) {
-            return -1;
-        } else {
-            return maxDay - 1;
-        }
+        return answer - 1;
     }
 }

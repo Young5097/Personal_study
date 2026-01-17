@@ -6,34 +6,32 @@ import java.util.PriorityQueue;
 public class 절댓값힙_11286 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         
         int N = Integer.parseInt(br.readLine()); // 연산 개수
         
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> {
             int absA = Math.abs(a);
             int absB = Math.abs(b);
-            if (absA == absB) {
-                return a - b;
+
+            if (absA != absB) {
+                return absA - absB;
             }
-            return absA - absB;
+
+            return a - b;
         });
 
-        for (int i = 0; i < N; i++) {
-            int x = Integer.parseInt(br.readLine());
-            
-            if (x == 0) {
-                if (pq.isEmpty()) {
-                    sb.append(0).append("\n");
-                } else {
-                    int min = pq.poll();
-                    sb.append(min).append("\n");
-                }
+        for (int i=0; i<N; i++) {
+            int n = Integer.parseInt(br.readLine());
+            if (n != 0) {
+                pq.add(n);
             } else {
-               pq.add(x);
+                if (pq.size() == 0) {
+                    System.out.println(0);
+                } else {
+                    int rm = pq.remove();
+                    System.out.println(rm);
+                }
             }
         }
-        
-        System.out.print(sb);
     }
 }

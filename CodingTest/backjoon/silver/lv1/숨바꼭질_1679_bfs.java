@@ -22,32 +22,54 @@ public class 숨바꼭질_1679_bfs {
     }
 
     public static int bfs(int start, int target) {
+        Queue<Integer> queue = new LinkedList<>();
+        int[] dist = new int[100001];
+        queue.offer(start);
+        dist[start] = 0;
+
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
+
+            if (cur == target) {
+                return dist[cur];
+            }
+
+            int[] next = {cur-1, cur+1, cur*2};
+            for (int nxt : next) {
+                if (nxt >= 0 && nxt < 100001 && dist[nxt]==0) {
+                    dist[nxt] = dist[cur] + 1;
+                    queue.offer(nxt);
+                } 
+            }
+        
+        }
+
+        return -1;
+    }
+
+    public static int bfs2(int start, int target) {
         Queue<int[]> queue = new LinkedList<>();
         boolean[] visited = new boolean[100001];
         queue.offer(new int[] {start, 0});
         visited[start] = true;
 
         while (!queue.isEmpty()) {
-            int[] pos = queue.poll();
-            int current = pos[0];
-            int depth = pos[1];
+            int[] current = queue.poll();
+            int cur = current[0];
+            int depth = current[1];
 
-            if (current == target) {
+            if (cur == target) {
                 return depth;
             }
 
-            if (current - 1 >= 0 && !visited[current-1]) {
-                queue.offer(new int[] {current-1, depth+1});
-                visited[current-1] = true;
+            int[] next = {cur-1, cur+1, cur*2};
+            for (int nxt : next) {
+                if (nxt >= 0 && nxt < 100001 && !visited[nxt]) {
+                    queue.offer(new int[] {nxt, depth+1});
+                    visited[nxt] = true; 
+                } 
             }
-            if (current + 1 < 100001 && !visited[current+1]) {
-                queue.offer(new int[] {current+1, depth+1});
-                visited[current+1] = true;
-            }
-            if (current * 2 < 100001 && !visited[current*2]) {
-                queue.offer(new int[] {current*2, depth+1});
-                visited[current*2] = true;
-            }
+        
         }
 
         return -1;
