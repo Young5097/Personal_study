@@ -43,5 +43,7 @@ public class 과일탕후르_30804 {
             maxLen = Math.max(maxLen, right - left + 1);
             right++;
         }
+
+        System.out.println(maxLen);
     }    
 }
